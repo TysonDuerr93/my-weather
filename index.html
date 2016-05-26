@@ -131,24 +131,45 @@
     </style>	
 
 </head>
-<body>
-<!-- Tab Navigation -->
 
- <div class="ui top attached tabular menu">
-  <a class="active item" data-tab="first">Cheney</a>
+<body class="">
+
+
+<!-- Tab Nav -->
+<div class="ui top attached tabular menu">
+  <a class="item active" data-tab="first">Cheney</a>
   <a class="item" data-tab="second">Spokane</a>
-  <a class="item" data-tab="third">Find Me</a>
+  <a class="item" data-tab="third">Locate Me</a>
 </div>
 
- 
- <!-- tab content -->
+<!-- Tab Content -->
+ <div class="ui bottom attached tab segment active" data-tab="first">
+  
+     <ul class="ui list" id="cheney">
+         <li class="item city">City</li>
+         <li class="item temp">00</li>
+         <li class="item icon">
+             <i class=""> </i>
+         </li>
+     </ul>
+     
+     <h3>Forecast</h3>
+     
+     <ul class="ui list" id="d1">
+         <li class="item day">Day</li>
+         <li class="item temp">00</li>
+         <li class="item icon">
+             <i class=""> </i>
+         </li>
+     </ul>
+     
+     
+     
+</div>
 
- <div class="ui bottom attached active tab segment active" data-tab="first">
-<ul class="ui list" id="cheney">
-    <li class="item city">City</li>
-    <li class="item temp">00</li>
-    <li class="item icon"><i></i></li>
+ <div class="ui bottom attached tab segment" data-tab="second">
    
+<<<<<<< HEAD
 </ul>
 </div>
 <div class="ui bottom attached tab segment" data-tab="second">
@@ -159,10 +180,34 @@
 </div>
 <div class="ui bottom attached tab segment" data-tab="third">
   Third
+=======
+     <ul class="ui list" id="spokane">
+         <li class="item city">City</li>
+         <li class="item temp">00</li>
+         <li class="item icon">
+             <i class=""> </i>
+         </li>
+     </ul>
+>>>>>>> gh-page
 </div>
 
+ <div class="geo ui bottom attached tab segment" data-tab="third">
 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <button class="ui inverted red button">Locate</button>
+        
+     <ul class="ui list">
+         <li class="item city">City</li>
+         <li class="item temp">00</li>
+         <li class="item icon">
+             <i class=""> </i>
+         </li>
+     </ul>
+     
+</div>
+    
+    	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="js-min/jquery-2.2.2-min.js"><\/script>')</script>
-	<script src="js-min/scripts.min.js"></script></body>
+	<script src="js-min/scripts.min.js"></script>        
+
+</body>
 </html>
