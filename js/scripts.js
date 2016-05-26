@@ -12,12 +12,10 @@
 
 // My Scripts
 
-// Active tabs
-$('.menu .item')
-  .tab();
+// Active Tabs
+$('.menu .item').tab();
 
-// Get Cheney weather
-
+// Get Cheney Weather
 $.simpleWeather({
     location: '99004',
     woeid: '',
@@ -27,26 +25,23 @@ $.simpleWeather({
       // Display Data
       $('#cheney .city').text(weather.city);
       $('#cheney .temp').text(weather.temp);
-      // Display icon  
- $('#cheney i').addClass( 'icon-' + weather.code );    
-
+      // Display Icon
+      $('#cheney i').addClass( 'icon-' + weather.code );        
+      // Get Forecast
+      $('#d1 .day').text(weather.forecast[1].date);
+      $('#d1 .temp').text(weather.forecast[1].high);
+      $('#cheney i').addClass( 'icon-' + weather.forecast[1].code );
         
-        //Get forecast
-        $("#d1 .day").text(weather.forecast[1].date);
-        $("#d1 .temp").text(weather.forecast[1].high);
-    $('#di i').addClass( 'icon-' + weather.forecast[1].code);
+      // Add Custom Body Class    
+      if ( weather.code >= 26 && weather.code <= 30 ) {
+          
+          // remove
+          $('body').removeClass();
+          // add class
+          $('body').addClass('bg-1');
+          
+      }
         
-        
-        //Add custom body class
-        if ( weather.code >= 26 && weather.code <= 30 ){
-                        $("body").removeClass();
-
-            $("body").addClass("bg-1");
-        
-        }
-
-        
-    
       // Entire weather object
       console.log(weather);
     },
@@ -56,10 +51,9 @@ $.simpleWeather({
   
   });
 
-// Get Spokane weather
-
+// Get Spokane Weather
 $.simpleWeather({
-    location: 'Spokane,WA',
+    location: '99203',
     woeid: '',
     unit: 'f',
     success: function(weather) {
@@ -67,10 +61,10 @@ $.simpleWeather({
       // Display Data
       $('#spokane .city').text(weather.city);
       $('#spokane .temp').text(weather.temp);
-      // Display icon
-     $('#spokane i').addClass( 'icon-' + weather.code );
-      
-        // Entire weather object
+      // Display Icon
+      $('#spokane i').addClass( 'icon-' + weather.code );        
+    
+      // Entire weather object
       console.log(weather);
     },
     error: function(error) {
@@ -91,6 +85,17 @@ if ('geolocation' in navigator) {
   $('.geo').prepend('<p>Geolocation Not Supported</p>');
 
 }
+
+// On Click, Get Geolocation, Call Weather Function
+$('.geo button').click( function() {
+     
+    //load weather using your lat/lng coordinates
+    navigator.geolocation.getCurrentPosition(function(position) {
+        getWeather(position.coords.latitude+','+position.coords.longitude); 
+    });
+   
+});
+
 // Get geolocated weather
 var getWeather = function(location) {
     
@@ -116,6 +121,12 @@ var getWeather = function(location) {
   });
     
 };
+
+
+
+
+
+
 
 
 
